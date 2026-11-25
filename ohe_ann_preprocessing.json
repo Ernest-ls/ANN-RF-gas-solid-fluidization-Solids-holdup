@@ -1,0 +1,72 @@
+{
+  "model_name": "ohe_ann",
+  "encoding": "ohe_reduced",
+  "feature_columns": [
+    "A",
+    "B",
+    "C",
+    "D",
+    "LP",
+    "H",
+    "Ug",
+    "Gs"
+  ],
+  "input_scaler": {
+    "scale_": [
+      1.0,
+      1.0,
+      1.0,
+      1.0,
+      0.5102040816326531,
+      0.19685039370078738,
+      0.2222222222222222,
+      0.006666666666666667
+    ],
+    "min_": [
+      0.0,
+      0.0,
+      0.0,
+      0.0,
+      0.5,
+      -0.24999999999999997,
+      -0.7777777777777777,
+      -0.33333333333333337
+    ],
+    "n_features_in_": 8,
+    "feature_range": [
+      0,
+      1
+    ],
+    "n_samples_seen_": 778
+  },
+  "target_scaler": {
+    "scale_": [
+      2.7995520716685327
+    ],
+    "min_": [
+      -0.004199328107502799
+    ],
+    "n_features_in_": 1,
+    "feature_range": [
+      0,
+      1
+    ],
+    "n_samples_seen_": 778
+  },
+  "ann_hyperparameters": {
+    "lr": 0.00078,
+    "hidden": [
+      174,
+      202,
+      146,
+      232,
+      202
+    ],
+    "dropout": 0.02668,
+    "batch_size": 54,
+    "optimizer": "adamw",
+    "activation": "relu"
+  },
+  "seed": 42,
+  "notes": "Newly retrained model; not a checkpoint from the originally submitted Table 7."
+}
