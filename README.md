@@ -11,7 +11,7 @@ This project predicts local solids holdup in a circulating fluidized bed riser u
 ## Code files
 
 - `Fluidization-ANN-RF.py` trains and tests the four model configurations.
-- `Fluidization-ANN-RF-optuna.py` optimizes hyperparameters using grouped validation.
+- `Fluidization-ANN-RF-optuna.py` performs hyperparameter optimization with Optuna.
 - `predict_models.py` predicts with the supplied models.
 - `model_core.py`, `model_training.py` and `preprocessing.py` define the models, training and scaling procedures.
 - `cfb_864.csv` contains the modeling data. `original_train_ids.csv` and `original_test_ids.csv` define the 778/86 split.
@@ -25,6 +25,13 @@ python predict_models.py --model dne_ann --input cfb_864.csv --eval-ids original
 python Fluidization-ANN-RF-optuna.py --data cfb_864.csv --model rf --encoding dne --trials 200
 ```
 
-Use `dne_ann`, `ohe_ann`, `dne_rf` or `ohe_rf` to select a model. Targets are supplied before normalization, and scaling is fitted on training data. Raw probe time series are unavailable in this repository. The checkpoints were independently retrained. The Optuna script performs a new grouped search, with historical study records unavailable.
+Available model options for `--model`
 
-Reuse licenses are pending rights-holder confirmation. MIT for code and CC BY 4.0 for data and checkpoints are proposed. See `LICENSE_PENDING.md`. Please cite the associated publication and Xu (2010).
+- `dne_ann` — DNE-ANN
+- `ohe_ann` — OHE-ANN
+- `dne_rf` — DNE-RF
+- `ohe_rf` — OHE-RF
+
+The dataset provides time-averaged solids-holdup values before normalization. Scaling parameters are fitted on training data and saved with the independently retrained models. Original probe time series are excluded.
+
+Please cite the associated publication and Xu (2010) when using these materials.
